@@ -32,8 +32,19 @@ kotlin {
         sourceSets.commonMain {
             kotlin.srcDir("build/generated/ksp/metadata")
         }
+        sourceSets.commonMain {
+            kotlin.srcDir("build/generated/ksp/metadata")
+        }
         commonMain.dependencies {
             //put your multiplatform dependencies here
+            implementation(libs.androidx.room.runtime)
+            implementation(libs.sqlite.bundled)
+
+            api(libs.koin.core)
+            implementation(libs.koin.compose)
+            implementation(libs.koin.composeVM)
+            implementation(libs.koin.test)
+
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
